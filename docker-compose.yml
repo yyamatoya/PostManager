@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  server:
+    build: docker/server
+    volumes:
+      - ./server:/var/www/laravel-app
+    ports:
+      - '8000:8000'
+      - '9000:9000'
+      - '5173:5173'
+    working_dir: /var/www/laravel-app
+    command: "sh ./entry-point.sh"
+    environment:
+      - 'DB_HOST=mysql'
+      - 'DB_PORT=3306'
+      - 'DB_DATABASE=mysns'
+      - 'DB_USERNAME=root'
+      - 'DB_PASSWORD=secret'
+  nginx:
+    image: nginx:alpine
+    ports:
+      - '8080:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www
+    depends_on:
+      - server
+  mysql:
+    image: mysql:5.7
+    ports:
+    - 3306:3306
+    restart: always
+    environment:
+      - 'MYSQL_DATABASE=mysns'
+      - 'MYSQL_USER=usr'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=secret'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
