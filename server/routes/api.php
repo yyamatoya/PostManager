@@ -21,3 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/test', function () {
     return response()->json('OK');
 });
+
+Route::prefix('admin')->group(function () {
+    Route::get('/user', function () {
+        return response()->json('OK (users)');
+    });
+});
