@@ -6,7 +6,6 @@ import 'package:post_app/enums/page_enum.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/api_helper.dart';
-import '../pages/profile_page.dart';
 import '../providers/user_provider.dart';
 import '../models/post_model.dart';
 import '../models/user_model.dart';

@@ -29,6 +29,6 @@ export default {
 </script>
 
 <template>
-    <v-data-table fixed-header height="200" hide-no-data :headers="headers" :items="items"
+    <v-data-table fixed-header hide-no-data :headers="headers" :items="items"
         :loading="isLoading" :loading-text="loadingText" :no-data-text="noDataText" />
 </template>

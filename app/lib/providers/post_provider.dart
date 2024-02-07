@@ -18,7 +18,6 @@ class PostProvider extends ChangeNotifier {
 
   void setPosts(List<Post> posts) {
     _posts.clear();
-    notifyListeners();
     _posts = posts;
     notifyListeners();
   }

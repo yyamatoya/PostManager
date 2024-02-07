@@ -4,9 +4,7 @@ import 'package:post_app/providers/draft_provider.dart';
 import 'package:post_app/providers/post_provider.dart';
 import 'package:post_app/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-import 'pages/home_page.dart';
 import 'pages/login_page.dart';
-import 'pages/second_screen.dart';
 
 void main() async {
   // debugPaintSizeEnabled = true;
